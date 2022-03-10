@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@shopping-copy/admin-modules": ["libs/admin-modules/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

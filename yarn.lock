@@ -743,7 +743,7 @@
     tmp "~0.2.1"
     tslib "^2.3.0"
 
-"@nrwl/nest@13.8.5":
+"@nrwl/nest@^13.8.5":
   version "13.8.5"
   resolved "https://registry.yarnpkg.com/@nrwl/nest/-/nest-13.8.5.tgz#8ba6e4929ab88192c3697a2849effac4960b5901"
   integrity sha512-N3xUYxJRPHK/jJIusrh+ryqqqCqQI9xtEobqE838ztjyVGGoXOHBkIU6u4kBQFkVyg5efCLoL7nUBp1CrhkBnA==

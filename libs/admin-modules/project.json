@@ -1,0 +1,22 @@
+{
+  "root": "libs/admin-modules",
+  "sourceRoot": "libs/admin-modules/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/admin-modules/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/admin-modules"],
+      "options": {
+        "jestConfig": "libs/admin-modules/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
