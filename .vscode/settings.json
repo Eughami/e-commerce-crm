@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "errorLens.infoBackground": "#fff0",
+    "errorLens.warningMessageBackground": "#fff0",
+    "errorLens.hintMessageBackground": "#fff0",
+    "errorLens.hintBackground": "#fff0",
+    "statusBar.noFolderBackground": "#fff0"
+  }
+}
