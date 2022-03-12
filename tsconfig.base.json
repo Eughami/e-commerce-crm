@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shopping-copy/admin-modules": ["libs/admin-modules/src/index.ts"]
+      "@shopping/admin-modules": ["libs/admin-modules/src/index.ts"],
+      "@shopping/entities": ["libs/entities/src/index.ts"],
+      "@shopping/enums": ["libs/enums/src/index.ts"],
+      "@shopping/service-libs": ["libs/service-libs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

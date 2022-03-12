@@ -2,6 +2,9 @@
   "version": 2,
   "projects": {
     "admin": "apps/admin",
-    "admin-modules": "libs/admin-modules"
+    "admin-modules": "libs/admin-modules",
+    "entities": "libs/entities",
+    "enums": "libs/enums",
+    "service-libs": "libs/service-libs"
   }
 }
