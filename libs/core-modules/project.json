@@ -1,0 +1,22 @@
+{
+  "root": "libs/core-modules",
+  "sourceRoot": "libs/core-modules/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/core-modules/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/core-modules"],
+      "options": {
+        "jestConfig": "libs/core-modules/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

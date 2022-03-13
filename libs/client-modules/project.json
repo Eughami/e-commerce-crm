@@ -1,0 +1,22 @@
+{
+  "root": "libs/client-modules",
+  "sourceRoot": "libs/client-modules/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client-modules/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client-modules"],
+      "options": {
+        "jestConfig": "libs/client-modules/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

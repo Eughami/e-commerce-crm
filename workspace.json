@@ -3,8 +3,11 @@
   "projects": {
     "admin": "apps/admin",
     "admin-modules": "libs/admin-modules",
+    "client-modules": "libs/client-modules",
+    "core-modules": "libs/core-modules",
     "entities": "libs/entities",
     "enums": "libs/enums",
-    "service-libs": "libs/service-libs"
+    "service-libs": "libs/service-libs",
+    "shopping-client": "apps/shopping-client"
   }
 }

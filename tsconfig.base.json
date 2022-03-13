@@ -16,6 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@shopping/admin-modules": ["libs/admin-modules/src/index.ts"],
+      "@shopping/client-modules": ["libs/client-modules/src/index.ts"],
+      "@shopping/core-modules": ["libs/core-modules/src/index.ts"],
       "@shopping/entities": ["libs/entities/src/index.ts"],
       "@shopping/enums": ["libs/enums/src/index.ts"],
       "@shopping/service-libs": ["libs/service-libs/src/index.ts"]

@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AdminModulesModule } from '@shopping/admin-modules';
 import { configurationSchema } from './config.schema';
+import { ClientModulesModule } from '@shopping/client-modules';
 import { configs } from '@shopping/service-libs';
 
 @Module({
@@ -13,7 +14,7 @@ import { configs } from '@shopping/service-libs';
       envFilePath: [`.env.${process.env.NODE_ENV}`],
       validationSchema: configurationSchema,
     }),
-    AdminModulesModule,
+    ClientModulesModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
