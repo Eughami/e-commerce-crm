@@ -5,6 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "s:c": "nx serve shopping-client",
+    "b:c": "nx build shopping-client",
     "test": "nx test"
   },
   "private": true,
