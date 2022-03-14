@@ -13,16 +13,19 @@ export class User extends BaseUser {
 
   @Column('uuid', { nullable: true })
   @ApiProperty()
+  @IsOptional()
   @IsUUID()
   statusId: string;
 
   @ApiProperty()
   @Column({ type: 'text', nullable: true })
+  @IsOptional()
   @IsUrl()
   imageUrl?: string;
 
   @ApiProperty()
   @Column({ type: 'text', nullable: true })
+  @IsOptional()
   @IsString()
   phone?: string;
 
