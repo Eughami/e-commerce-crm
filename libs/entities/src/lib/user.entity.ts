@@ -11,38 +11,18 @@ export class User extends BaseUser {
   @Index({ unique: true })
   shortId: number;
 
-  @Column('uuid', { nullable: true })
-  @ApiProperty()
-  @IsOptional()
-  @IsUUID()
-  statusId: string;
-
   @ApiProperty()
   @Column({ type: 'text', nullable: true })
-  @IsOptional()
-  @IsUrl()
-  imageUrl?: string;
-
-  @ApiProperty()
-  @Column({ type: 'text', nullable: true })
-  @IsOptional()
   @IsString()
   phone?: string;
 
   @Column({ type: 'boolean', default: false })
   emailVerified: boolean;
 
-  // @ApiProperty()
-  // @Column({ unique: true })
-  // @MinLength(4)
-  // @MaxLength(20)
-  // @Index()
-  // username: string;
-
   @Column({ type: 'text', nullable: true })
-  @IsOptional()
   accountType?: string;
 
+  @ApiProperty()
   @Column({ type: 'text', nullable: true })
   password?: string;
 
