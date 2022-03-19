@@ -47,8 +47,4 @@ export abstract class BaseUser extends BaseEntity {
 
   @Column({ type: 'text', nullable: true })
   registrationIp: string;
-
-  validatePassword(password: string): boolean {
-    return bcrypt.compareSync(password, this.password);
-  }
 }

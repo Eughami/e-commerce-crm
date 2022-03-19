@@ -13,7 +13,7 @@ export class UserRepository extends Repository<User> {
     const { email, password } = authCredentialsDto;
     const user = await this.findOne({
       where: { email },
-      select: ['email', 'id', 'password']
+      select: ['email', 'id', 'password', 'firstName', 'lastName', 'passwordSalt']
     });
 
     if (user && user.validatePassword(password)) {

@@ -3,4 +3,5 @@ export interface IBaseJWTPayload {
   email: string;
   firstName: string;
   lastName: string;
+  accessToken?: string;
 }

@@ -7,6 +7,7 @@ import { User } from '@shopping/entities';
 import { UserRepository } from '../../user/user.db-repository';
 import { UserAuthController } from './user-auth.controller';
 import { UserAuthService } from './user-auth.service';
+import { UserJwtStrategy } from './user-jwt.strategy';
 
 @Module({
   imports: [
@@ -15,16 +16,16 @@ import { UserAuthService } from './user-auth.service';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (cf: ConfigService) => ({
-        secret: cf.get('jwt.secret'),
+        secret: cf.get('JWT_SECRET'),
         signOptions: {
-          expiresIn: cf.get('jwt.expiresIn')
+          expiresIn: cf.get('JWT_EXPIRES_IN')
         }
       })
     }),
     TypeOrmModule.forFeature([UserRepository, User])
   ],
   controllers: [UserAuthController],
-  providers: [UserAuthService],
-  exports: []
+  providers: [UserAuthService, UserJwtStrategy],
+  exports: [UserAuthService, UserJwtStrategy]
 })
 export class UserAuthModule {}

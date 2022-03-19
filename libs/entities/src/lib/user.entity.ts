@@ -32,8 +32,14 @@ export class User extends BaseUser {
   @Column({ type: 'timestamptz', nullable: true })
   passwordCreatedAt: Date;
 
+  // validatePassword(password: string): boolean {
+  //   const hash = bcrypt.hashSync(password, this.passwordSalt);
+  //   console.log(hash, this.passwordSalt, this.password, hash === this.password);
+  //   return hash === this.password;
+  // }
+
   validatePassword(password: string): boolean {
-    const hash = bcrypt.hashSync(password, this.passwordSalt);
-    return hash === this.password;
+    console.log(password, this.password, bcrypt.compareSync(password, this.password));
+    return bcrypt.compareSync(password, this.password);
   }
 }
