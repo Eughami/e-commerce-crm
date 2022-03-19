@@ -5,6 +5,6 @@ import { CoreModulesModule } from '@shopping/core-modules';
   imports: [CoreModulesModule],
   controllers: [],
   providers: [],
-  exports: [],
+  exports: []
 })
 export class ClientModulesModule {}

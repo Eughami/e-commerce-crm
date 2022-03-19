@@ -1,13 +1,6 @@
 import { Column, Index } from 'typeorm';
 import bcrypt = require('bcrypt');
-import {
-  IsEmail,
-  IsEnum,
-  IsString,
-  Matches,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
+import { IsEmail, IsEnum, IsString, Matches, MaxLength, MinLength } from 'class-validator';
 import { BaseEntity } from './base.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { ELanguage } from '@shopping/enums';
@@ -35,7 +28,7 @@ export abstract class BaseUser extends BaseEntity {
   @MinLength(8)
   @MaxLength(20)
   @Matches(PASSWORD_STRENGTH_REGEX, {
-    message: 'Password too weak',
+    message: 'Password too weak'
   })
   password?: string;
 
@@ -43,7 +36,7 @@ export abstract class BaseUser extends BaseEntity {
   lastPasswordChange?: Date;
 
   @ApiProperty({
-    enum: ELanguage,
+    enum: ELanguage
   })
   @IsEnum(ELanguage)
   @Column({ type: 'text', nullable: false, default: ELanguage.English })

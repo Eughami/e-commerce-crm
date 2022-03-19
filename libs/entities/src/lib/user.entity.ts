@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsOptional, IsString, IsUrl, IsUUID } from 'class-validator';
+import { IsString } from 'class-validator';
 import { Column, Entity, Index, Generated } from 'typeorm';
 import { BaseUser } from './base/base-user.entity';
 import bcrypt = require('bcrypt');
