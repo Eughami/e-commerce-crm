@@ -20,6 +20,7 @@
       "@shopping/core-modules": ["libs/core-modules/src/index.ts"],
       "@shopping/entities": ["libs/entities/src/index.ts"],
       "@shopping/enums": ["libs/enums/src/index.ts"],
+      "@shopping/interfaces": ["libs/interfaces/src/index.ts"],
       "@shopping/service-libs": ["libs/service-libs/src/index.ts"]
     }
   },

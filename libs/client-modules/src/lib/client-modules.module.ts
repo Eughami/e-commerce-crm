@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { CoreModulesModule } from '@shopping/core-modules';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserAuthModule, UserModule, UserRepository, UserSubscriber } from '@shopping/core-modules';
+import { User } from '@shopping/entities';
 
 @Module({
-  imports: [CoreModulesModule],
+  imports: [UserAuthModule, UserModule, UserSubscriber, TypeOrmModule.forFeature([UserRepository, User])],
   controllers: [],
   providers: [],
-  exports: [],
+  exports: []
 })
 export class ClientModulesModule {}

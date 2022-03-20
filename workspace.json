@@ -7,6 +7,7 @@
     "core-modules": "libs/core-modules",
     "entities": "libs/entities",
     "enums": "libs/enums",
+    "interfaces": "libs/interfaces",
     "service-libs": "libs/service-libs",
     "shopping-client": "apps/shopping-client"
   }
