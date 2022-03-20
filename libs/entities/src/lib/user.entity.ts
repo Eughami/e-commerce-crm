@@ -34,7 +34,6 @@ export class User extends BaseUser {
 
   validatePassword(password: string): boolean {
     const hash = bcrypt.hashSync(password, this.passwordSalt);
-    console.log(hash, this.password);
     return hash === this.password;
   }
 

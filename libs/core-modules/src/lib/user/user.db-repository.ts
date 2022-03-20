@@ -1,6 +1,5 @@
 import { Repository, EntityRepository } from 'typeorm';
 import { Logger } from '@nestjs/common';
-import bcrypt = require('bcrypt');
 import { User } from '@shopping/entities';
 import { IBaseJWTPayload } from '@shopping/interfaces';
 import { UserAuthCredentialsDto } from '../auth/user/dto/user-auth.dto';
