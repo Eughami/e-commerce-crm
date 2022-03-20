@@ -1,6 +1,6 @@
 import { PASSWORD_STRENGTH_REGEX } from '@shopping/service-libs';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, MinLength, MaxLength, IsNotEmpty, Matches } from 'class-validator';
+import { IsString, MinLength, MaxLength, Matches, IsEmail } from 'class-validator';
 
 export class UserAuthCredentialsDto {
   @ApiProperty()
@@ -13,7 +13,6 @@ export class UserAuthCredentialsDto {
   password: string;
 
   @ApiProperty()
-  @IsNotEmpty()
-  @IsString()
+  @IsEmail()
   email: string;
 }
