@@ -1,15 +1,21 @@
 import { User } from '@shopping/entities';
-import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { UserRepository } from '../../user/user.db-repository';
 import { JwtService } from '@nestjs/jwt';
 import { IBaseJWTPayload } from '@shopping/interfaces';
 import { UserAuthCredentialsDto } from './dto/user-auth.dto';
+import * as jwt from 'jsonwebtoken';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UserAuthService {
   private logger = new Logger(UserAuthService.name);
 
-  constructor(private userRepository: UserRepository, private jwtService: JwtService) {}
+  constructor(
+    private userRepository: UserRepository,
+    private jwtService: JwtService,
+    private configService: ConfigService
+  ) {}
 
   async register(user: User): Promise<User> {
     return await this.userRepository.save(user);
@@ -39,5 +45,38 @@ export class UserAuthService {
     await this.userRepository.update(user.id, { accessToken });
 
     return { accessToken, email, id, firstName, lastName };
+  }
+
+  async forgotPassword(email: string) {
+    const targetAgent = await this.userRepository.findOne({
+      where: { email },
+      select: ['id', 'firstName', 'lastName', 'email', 'language']
+    });
+
+    if (!targetAgent) {
+      throw new BadRequestException('No agent found for target email');
+    }
+
+    //Get access token using agent id..
+    const accessToken = this.createAgentPasswordResetToken(targetAgent.id);
+
+    //Send forgot password email..
+    // await this.emailTemplateService.sendForgotAgentPasswordEmail(accessToken.token, targetAgent);
+
+    return {
+      message: 'Password reset email sent',
+      accessToken
+    };
+  }
+
+  createAgentPasswordResetToken(agentId: string) {
+    const payload = {
+      agentId
+    };
+    const token = jwt.sign(payload, this.configService.get('JWT_SECRET'), {
+      expiresIn: this.configService.get('JWT_EXPIRES_IN')
+    });
+
+    return { ...payload, token };
   }
 }
