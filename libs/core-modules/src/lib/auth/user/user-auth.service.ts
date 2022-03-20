@@ -3,7 +3,7 @@ import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { UserRepository } from '../../user/user.db-repository';
 import { JwtService } from '@nestjs/jwt';
 import { IBaseJWTPayload } from '@shopping/interfaces';
-import { UserAuthCredentialsDto } from './user-auth.dto';
+import { UserAuthCredentialsDto } from './dto/user-auth.dto';
 
 @Injectable()
 export class UserAuthService {
@@ -22,7 +22,7 @@ export class UserAuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload: IBaseJWTPayload = user;
+    const payload: Partial<IBaseJWTPayload> = user;
     const accessToken = await this.jwtService.signAsync(payload);
 
     this.logger.debug(`Generated JWT Token for Agent with payload ${JSON.stringify(payload)}`);
@@ -32,7 +32,7 @@ export class UserAuthService {
         id: user.id
       },
       {
-        select: ['email', 'id', 'accessToken']
+        select: ['email', 'id', 'accessToken', 'firstName', 'lastName']
       }
     );
 

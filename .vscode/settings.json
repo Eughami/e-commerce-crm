@@ -4,11 +4,6 @@
     "errorLens.warningMessageBackground": "#fff0",
     "errorLens.hintMessageBackground": "#fff0",
     "errorLens.hintBackground": "#fff0",
-    "statusBar.background": "#fff0",
-    "statusBar.noFolderBackground": "#fff0",
-    "statusBar.debuggingBackground": "#fff0",
-    "activityBar.background": "#153231",
-    "titleBar.activeBackground": "#1E4645",
-    "titleBar.activeForeground": "#F7FCFC"
+    "statusBar.noFolderBackground": "#fff0"
   }
 }
