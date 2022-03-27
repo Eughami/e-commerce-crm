@@ -2,7 +2,7 @@ import { Controller, UseGuards } from '@nestjs/common';
 import { Crud, CrudController } from '@nestjsx/crud';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
-import { crudGeneralOptions } from '@shopping/service-libs';
+import { allBaseRoutes, crudGeneralOptions } from '@shopping/service-libs';
 import { User } from '@shopping/entities';
 import { UserJwtAuthGuard } from '../guards';
 
@@ -14,6 +14,10 @@ import { UserJwtAuthGuard } from '../guards';
   query: {
     ...crudGeneralOptions.query,
     maxLimit: 500
+  },
+  routes: {
+    exclude: allBaseRoutes(),
+    only: ['getOneBase']
   }
 })
 @ApiBearerAuth()

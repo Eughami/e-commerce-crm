@@ -5,8 +5,8 @@ export const crudGeneralOptions: Partial<CrudOptions> = {
     id: {
       field: 'id',
       type: 'uuid',
-      primary: true,
-    },
+      primary: true
+    }
   },
   query: {
     maxLimit: 100,
@@ -19,9 +19,9 @@ export const crudGeneralOptions: Partial<CrudOptions> = {
       'accessToken',
       'twoFactorAuthSecret',
       'ipWhitelist',
-      'salt',
-    ],
-  },
+      'salt'
+    ]
+  }
 };
 
 export const crudDefaultRequest: CrudRequest = {
@@ -29,8 +29,8 @@ export const crudDefaultRequest: CrudRequest = {
     query: {
       maxLimit: 100,
       cache: 2000,
-      alwaysPaginate: true,
-    },
+      alwaysPaginate: true
+    }
   },
   parsed: {
     fields: [],
@@ -45,8 +45,8 @@ export const crudDefaultRequest: CrudRequest = {
     cache: undefined,
     offset: undefined,
     page: undefined,
-    includeDeleted: 0,
-  },
+    includeDeleted: 0
+  }
 };
 
 export const allBaseRoutes = (): BaseRouteName[] => [
@@ -57,7 +57,7 @@ export const allBaseRoutes = (): BaseRouteName[] => [
   'updateOneBase',
   'replaceOneBase',
   'deleteOneBase',
-  'recoverOneBase',
+  'recoverOneBase'
 ];
 
 export const emptyDefaultGetManyResponse = {
@@ -65,5 +65,5 @@ export const emptyDefaultGetManyResponse = {
   count: 0,
   total: 0,
   page: 1,
-  pageCount: 1,
+  pageCount: 1
 };
