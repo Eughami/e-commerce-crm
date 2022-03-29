@@ -1,10 +1,11 @@
 import { Controller, UseGuards } from '@nestjs/common';
-import { Crud, CrudController } from '@nestjsx/crud';
+import { Crud, CrudAuth, CrudController } from '@nestjsx/crud';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
-import { allBaseRoutes, crudGeneralOptions } from '@shopping/service-libs';
+import { crudGeneralOptions } from '@shopping/service-libs';
 import { User } from '@shopping/entities';
-import { UserJwtAuthGuard } from '../guards';
+import { OwnGuard } from '../guards/own-guard';
+import { UserJwtAuthGuard } from '..';
 
 @Crud({
   model: {
@@ -16,13 +17,18 @@ import { UserJwtAuthGuard } from '../guards';
     maxLimit: 500
   },
   routes: {
-    exclude: allBaseRoutes(),
     only: ['getOneBase']
   }
 })
 @ApiBearerAuth()
 @ApiTags('User')
 @Controller('user')
+@CrudAuth({
+  property: 'user',
+  filter: (user: User) => ({
+    id: user.id
+  })
+})
 @UseGuards(UserJwtAuthGuard)
 export class UserController implements CrudController<User> {
   constructor(public readonly service: UserService) {}
